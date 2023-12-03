@@ -4,61 +4,72 @@ import { IoMdSearch } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaCaretDown } from "react-icons/fa";
 import DarkMode from "./DarkMode";
+import { Link } from "react-scroll"; // Import Link from react-scroll
 
 const Menu = [
   {
     id: 1,
     name: "Home",
-    link: "/#",
+    section: "home",
   },
   {
     id: 2,
     name: "Top Rated",
-    link: "/#services",
+    section: "services",
   },
   {
     id: 3,
     name: "Male",
-    link: "/#",
+    section: "male",
   },
   {
-    id: 3,
+    id: 4,
     name: "Female",
-    link: "/#",
+    section: "female",
   },
   {
-    id: 3,
+    id: 5,
     name: "Premium",
-    link: "/#",
+    section: "premium",
   },
 ];
 
 const DropdownLinks = [
   {
-    id: 1,
+    id: 6,
     name: "Trending Products",
-    link: "/#",
+    section: "trending",
   },
   {
-    id: 2,
+    id: 7,
     name: "Best Selling",
-    link: "/#",
+    section: "selling",
   },
   {
-    id: 3,
+    id: 8,
     name: "Top Rated",
-    link: "/#",
+    section: "top-rated",
   },
 ];
 
 const Navbar = ({ handleOrderPopup }) => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
       {/* upper Navbar */}
       <div className="bg-primary/40 py-2">
         <div className="container flex justify-between items-center">
           <div>
-            <a href="#" className="text-2xl sm:text-3xl flex gap-1 hover:scale-110">
+            <a
+              href="#"
+              className="text-2xl sm:text-3xl flex gap-1 hover:scale-110"
+            >
               <img src={Logo} alt="Logo" className="w-10 p-0 h-2/4" />
               Sommy <span className=" text-orange-600">store</span>
             </a>
@@ -100,17 +111,24 @@ const Navbar = ({ handleOrderPopup }) => {
         <ul className="sm:flex hidden items-center gap-4">
           {Menu.map((data) => (
             <li key={data.id}>
-              <a
-                href={data.link}
-                className="inline-block px-4 hover:text-orange-600 duration-200"
+              {/* Use Link from react-scroll */}
+              <Link
+                to={data.section}
+                smooth={true}
+                snap={true}
+                duration={500}
+                className="inline-block px-4 hover:text-orange-600 duration-200 cursor-pointer"
               >
                 {data.name}
-              </a>
+              </Link>
             </li>
           ))}
           {/* Simple Dropdown and Links */}
           <li className="group relative cursor-pointer">
-            <a href="#" className="flex items-center gap-[2px] py-2 hover:text-orange-600">
+            <a
+              href="#"
+              className="flex items-center gap-[2px] py-2 hover:text-orange-600"
+            >
               Trending Products
               <span>
                 <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
@@ -120,12 +138,15 @@ const Navbar = ({ handleOrderPopup }) => {
               <ul>
                 {DropdownLinks.map((data) => (
                   <li key={data.id}>
-                    <a
-                      href={data.link}
+                    {/* Use Link from react-scroll for dropdown links */}
+                    <Link
+                      to={data.section}
+                      smooth={true}
+                      duration={500}
                       className="inline-block w-full rounded-md p-2 hover:bg-primary/20 hover:text-orange-400"
                     >
                       {data.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
