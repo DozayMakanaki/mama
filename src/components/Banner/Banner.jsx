@@ -4,7 +4,7 @@ import { GrSecure } from "react-icons/gr";
 import { IoFastFood } from "react-icons/io5";
 import { GiFoodTruck } from "react-icons/gi";
 
-const Banner = () => {
+const Banner = ({ handleOrderPopup }) => {
   return (
     <div className="min-h-[550px] flex justify-center items-center py-12 sm:py-0">
       <div className="container">
@@ -45,7 +45,12 @@ const Banner = () => {
               </div>
               <div data-aos="fade-up" className="flex items-center gap-4">
                 <GiFoodTruck className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-yellow-100 dark:bg-yellow-400" />
-                <p>Get Offers</p>
+                <button
+                  className="bg-gray-700 dark:bg-white hover:scale-105 duration-300 text-white dark:text-gray-700 py-1 px-4 rounded-full mt-4 dark:group-hover:bg-white dark:group-hover:text-black pt-0"
+                  onClick={() => handleOrderPopup()}
+                >
+                  Get Offers
+                </button>
               </div>
             </div>
           </div>
