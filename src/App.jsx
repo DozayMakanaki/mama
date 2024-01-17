@@ -12,6 +12,7 @@ import Popup from "./components/Popup/Popup";
 import Male from "./components/Products/male";
 import Female from "./components/Products/Female";
 import { BrowserRouter } from "react-router-dom";
+import Premium from "./components/Products/Premium";
 
 const App = () => {
   const [orderPopup, setOrderPopup] = React.useState(false);
@@ -38,6 +39,7 @@ const App = () => {
       <Banner handleOrderPopup={handleOrderPopup} />
       <Male />
       <Female />
+      <Premium />
       <Subscribe />
       <Testimonials />
       <Footer />
