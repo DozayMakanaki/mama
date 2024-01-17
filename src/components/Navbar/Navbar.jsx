@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import Logo from "../../assets/logo.png";
 import { IoMdSearch } from "react-icons/io";
@@ -15,7 +17,7 @@ const Menu = [
   {
     id: 2,
     name: "Top Rated",
-    section: "services",
+    section: "top-rated",
   },
   {
     id: 3,
@@ -115,7 +117,6 @@ const Navbar = ({ handleOrderPopup }) => {
               <Link
                 to={data.section}
                 smooth={true}
-                snap={true}
                 duration={500}
                 className="inline-block px-4 hover:text-orange-600 duration-200 cursor-pointer"
               >

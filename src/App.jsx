@@ -15,48 +15,34 @@ import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   const [orderPopup, setOrderPopup] = React.useState(false);
-  const [hasAnimationPlayed, setHasAnimationPlayed] = React.useState(false);
 
   const handleOrderPopup = () => {
     setOrderPopup(!orderPopup);
   };
-
   React.useEffect(() => {
-    // Check if the animation has already played
-    const hasPlayed = localStorage.getItem("hasAnimationPlayed");
-
-    if (!hasPlayed) {
-      // If it hasn't played, trigger the animations
-      AOS.init({
-        offset: 100,
-        duration: 800,
-        easing: "ease-in-sine",
-        delay: 100,
-      });
-
-      // Mark that the animation has played in local storage
-      localStorage.setItem("hasAnimationPlayed", "true");
-      setHasAnimationPlayed(true);
-    } else {
-      // If the animation has already played, refresh AOS
-      AOS.refresh();
-    }
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
+    });
+    AOS.refresh();
   }, []);
 
   return (
     <BrowserRouter>
-      <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-        <Navbar handleOrderPopup={handleOrderPopup} />
-        <Hero handleOrderPopup={handleOrderPopup} />
-        <TopProducts handleOrderPopup={handleOrderPopup} />
-        <Banner handleOrderPopup={handleOrderPopup} />
-        <Male />
-        <Female />
-        <Subscribe />
-        <Testimonials />
-        <Footer />
-        <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
-      </div>
+    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+      <Navbar handleOrderPopup={handleOrderPopup} />
+      <Hero handleOrderPopup={handleOrderPopup} />
+      <TopProducts handleOrderPopup={handleOrderPopup} />
+      <Banner handleOrderPopup={handleOrderPopup} />
+      <Male />
+      <Female />
+      <Subscribe />
+      <Testimonials />
+      <Footer />
+      <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
+    </div>
     </BrowserRouter>
   );
 };
