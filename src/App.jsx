@@ -9,7 +9,7 @@ import Subscribe from "./components/Subscribe/Subscribe";
 import Testimonials from "./components/Testimonials/Testimonials";
 import Footer from "./components/Footer/Footer";
 import Popup from "./components/Popup/Popup";
-import Male from "./components/Products/male";
+import Male from "./components/Products/Male";
 import Female from "./components/Products/Female";
 import { BrowserRouter } from "react-router-dom";
 import Premium from "./components/Products/Premium";
