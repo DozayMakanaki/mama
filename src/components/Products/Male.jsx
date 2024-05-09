@@ -71,14 +71,14 @@ const Male = () => {
             {visibleProducts < ProductsData.length ? (
               <button
                 onClick={handleViewMore}
-                className="text-center cursor-pointer bg-primary text-white py-1 px-5 rounded-md hover:text-orange-300"
+                className="text-center cursor-pointer text-gray-800 dark:text-white py-1 px-5 rounded-md hover:text-orange-300"
               >
                 View All
               </button>
             ) : visibleProducts > initialVisibleProducts ? (
               <button
                 onClick={handleShowLess}
-                className="text-center cursor-pointer bg-primary text-white py-1 px-5 rounded-md hover:text-orange-300 hover:scale-110"
+                className="text-center cursor-pointer text-gray-800 dark:text-white py-1 px-5 rounded-md hover:text-orange-300 hover:scale-110"
               >
                 Show Less
               </button>
