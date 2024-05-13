@@ -1,12 +1,11 @@
-
-
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
 import { IoMdSearch } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaCaretDown } from "react-icons/fa";
 import DarkMode from "./DarkMode";
-import { Link } from "react-scroll"; // Import Link from react-scroll
+import { Link } from "react-scroll";
+import { ProductsData } from "../TopProducts/TopProducts"; // Check the import path
 
 const Menu = [
   {
@@ -55,16 +54,61 @@ const DropdownLinks = [
 ];
 
 const Navbar = ({ handleOrderPopup }) => {
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const [searchInput, setSearchInput] = useState("");
+  const [searchSuggestions, setSearchSuggestions] = useState([]);
+  const [searchActive, setSearchActive] = useState(false);
+
+  const handleSearchInputChange = (e) => {
+    const inputValue = e.target.value;
+    setSearchInput(inputValue);
+    setSearchActive(inputValue.trim() !== "");
+    if (inputValue.trim() !== "") {
+      // Filter suggestions based on input value
+      const filteredSuggestions = ProductsData.filter((product) =>
+        product.title.toLowerCase().includes(inputValue.toLowerCase())
+      );
+      setSearchSuggestions(filteredSuggestions);
+    } else {
+      setSearchSuggestions([]);
+    }
+  };
+
+  const handleSearchSubmit = () => {
+    if (searchInput.trim() !== "") {
+      handleSearch();
+    }
+  };
+
+  const handleSearch = () => {
+    const foundProduct = ProductsData.find(
+      (product) => product.title.toLowerCase() === searchInput.toLowerCase()
+    );
+
+    if (foundProduct) {
+      const element = document.getElementById("top-rated");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      alert("Product not available");
+    }
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setSearchInput(suggestion.title);
+    setSearchActive(false);
+    setSearchSuggestions([]);
+    handleSearch();
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearchSubmit();
     }
   };
 
   return (
     <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
-      {/* upper Navbar */}
       <div className="bg-primary/40 py-2">
         <div className="container flex justify-between items-center">
           <div>
@@ -76,22 +120,21 @@ const Navbar = ({ handleOrderPopup }) => {
               Sommy <span className=" text-orange-600">store</span>
             </a>
           </div>
-
-          {/* search bar */}
           <div className="flex justify-between items-center gap-4">
-            <div className="relative group hidden sm:block">
+            <div className="relative group  sm:block">
               <input
                 type="text"
-                placeholder="search"
-                className="w-[200px] sm:w-[200px] group-hover:w-[300px] transition-all duration-300 rounded-full border border-gray-300 px-2 py-1 focus:outline-none focus:border-1 focus:border-primary dark:border-gray-500 dark:bg-gray-800  "
+                placeholder="Search"
+                value={searchInput}
+                onChange={handleSearchInputChange}
+                onKeyPress={handleKeyPress}
+                className="w-[200px]  group-hover:w-[300px] transition-all duration-300 rounded-full border border-gray-300 px-2 py-1 focus:outline-none focus:border-1 focus:border-primary dark:border-gray-500 dark:bg-gray-800  "
               />
-              <button>
+              <button onClick={handleSearchSubmit}>
                 <IoMdSearch className="text-gray-500 group-hover:text-primary absolute top-1/2 -translate-y-1/2 right-3" />
               </button>
             </div>
-
-            {/* order button */}
-            <button
+            {/* <button
               onClick={() => handleOrderPopup()}
               className="bg-gradient-to-r from-primary to-secondary transition-all duration-200 text-white  py-1 px-4 rounded-full flex items-center gap-3 group"
             >
@@ -99,21 +142,30 @@ const Navbar = ({ handleOrderPopup }) => {
                 Order
               </span>
               <FaCartShopping className="text-xl text-gray-600 drop-shadow-sm cursor-pointer hover:text-orange-600 hover:scale-110" />
-            </button>
-
-            {/* Darkmode Switch */}
+            </button> */}
             <div>
               <DarkMode />
             </div>
           </div>
+          {searchActive && (
+            <ul className="absolute z-[9999] mt-2 w-[200px] rounded-md bg-white p-2 text-black shadow-md">
+              {searchSuggestions.map((suggestion) => (
+                <li
+                  key={suggestion.id}
+                  className="cursor-pointer hover:bg-primary/20 p-1 rounded"
+                  onClick={() => handleSuggestionClick(suggestion)}
+                >
+                  {suggestion.title}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
-      {/* lower Navbar */}
       <div data-aos="zoom-in" className="flex justify-center">
         <ul className="sm:flex hidden items-center gap-4">
           {Menu.map((data) => (
             <li key={data.id}>
-              {/* Use Link from react-scroll */}
               <Link
                 to={data.section}
                 smooth={true}
@@ -124,7 +176,6 @@ const Navbar = ({ handleOrderPopup }) => {
               </Link>
             </li>
           ))}
-          {/* Simple Dropdown and Links */}
           <li className="group relative cursor-pointer">
             <a
               href="#"
@@ -139,7 +190,6 @@ const Navbar = ({ handleOrderPopup }) => {
               <ul>
                 {DropdownLinks.map((data) => (
                   <li key={data.id}>
-                    {/* Use Link from react-scroll for dropdown links */}
                     <Link
                       to={data.section}
                       smooth={true}

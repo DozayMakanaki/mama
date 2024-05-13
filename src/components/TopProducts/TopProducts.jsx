@@ -4,7 +4,7 @@ import Img2 from "../../assets/topproduct/rolex.jpg";
 import Img3 from "../../assets/topproduct/hublot.jpg";
 import { FaStar } from "react-icons/fa";
 
-const ProductsData = [
+ export const ProductsData = [
   {
     id: 1,
     img: Img1,
