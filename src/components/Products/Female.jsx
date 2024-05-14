@@ -6,7 +6,7 @@ import Img4 from "../../assets/topproduct/Cartier.jpg";
 import Img5 from "../../assets/topproduct/chanel.jpg";
 import { FaStar } from "react-icons/fa6";
 
-const initialVisibleProducts = 3;
+const initialVisibleProducts = 4;
 
 const Female = () => {
   const [visibleProducts, setVisibleProducts] = useState(
@@ -14,19 +14,16 @@ const Female = () => {
   );
 
   const handleViewMore = () => {
-    // Increase the number of visible products when "View All" is clicked
     setVisibleProducts(ProductsData.length);
   };
 
   const handleShowLess = () => {
-    // Go back to the initial number of visible products
     setVisibleProducts(initialVisibleProducts);
   };
 
   return (
     <div className="mt-14 mb-12" id="female">
       <div className="container">
-        {/* Header section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
           <p data-aos="fade-up" className="text-sm text-primary">
             Top Selling Products for Women
@@ -36,13 +33,11 @@ const Female = () => {
           </h1>
           <p data-aos="fade-up" className="text-xs text-gray-400">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-            asperiores modi Sit asperiores 
+            asperiores modi Sit asperiores
           </p>
         </div>
-        {/* Body section */}
         <div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
-            {/* card section */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
             {ProductsData.slice(0, visibleProducts).map((data) => (
               <div
                 data-aos="fade-up"
@@ -53,7 +48,7 @@ const Female = () => {
                 <img
                   src={data.img}
                   alt=""
-                  className="h-[220px] w-[150px] object-cover rounded-md"
+                  className="h-[200px] w-[130px] object-cover rounded-md"
                 />
                 <div>
                   <h3 className="font-semibold">{data.title}</h3>
@@ -66,8 +61,7 @@ const Female = () => {
               </div>
             ))}
           </div>
-          {/* Buttons section */}
-          <div data-aos="fade-up" className="flex justify-center mt-5 ">
+          <div data-aos="fade-up" className="flex justify-center mt-5">
             {visibleProducts < ProductsData.length ? (
               <button
                 onClick={handleViewMore}
@@ -78,7 +72,7 @@ const Female = () => {
             ) : visibleProducts > initialVisibleProducts ? (
               <button
                 onClick={handleShowLess}
-                className="text-center cursor-pointer   text-gray-800 dark:text-white py-1 px-5 rounded-md hover:text-orange-300 hover:scale-110"
+                className="text-center cursor-pointer text-gray-800 dark:text-white py-1 px-5 rounded-md hover:text-orange-300 hover:scale-110"
               >
                 Show Less
               </button>

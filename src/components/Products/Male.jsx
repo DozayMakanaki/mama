@@ -6,43 +6,38 @@ import Img4 from "../../assets/topproduct/Cartier.jpg";
 import Img5 from "../../assets/topproduct/chanel.jpg";
 import { FaStar } from "react-icons/fa6";
 
-const initialVisibleProducts = 3;
+const initialVisibleProducts = 4;
 
-const Male = () => {
+const Female = () => {
   const [visibleProducts, setVisibleProducts] = useState(
     initialVisibleProducts
   );
 
   const handleViewMore = () => {
-    // Increase the number of visible products when "View All" is clicked
     setVisibleProducts(ProductsData.length);
   };
 
   const handleShowLess = () => {
-    // Go back to the initial number of visible products
     setVisibleProducts(initialVisibleProducts);
   };
 
   return (
-    <div className="mt-14 mb-12" id="male">
+    <div className="mt-14 mb-12" id="female">
       <div className="container">
-        {/* Header section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
           <p data-aos="fade-up" className="text-sm text-primary">
-            Top Selling Products for men
+            Top Selling Products for Women
           </p>
           <h1 data-aos="fade-up" className="text-3xl font-bold">
-            Men Watches
+            Women Watches
           </h1>
           <p data-aos="fade-up" className="text-xs text-gray-400">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-            asperiores modi Sit asperiores modi
+            asperiores modi Sit asperiores
           </p>
         </div>
-        {/* Body section */}
         <div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
-            {/* card section */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
             {ProductsData.slice(0, visibleProducts).map((data) => (
               <div
                 data-aos="fade-up"
@@ -53,7 +48,7 @@ const Male = () => {
                 <img
                   src={data.img}
                   alt=""
-                  className="h-[220px] w-[150px] object-cover rounded-md"
+                  className="h-[200px] w-[130px] object-cover rounded-md"
                 />
                 <div>
                   <h3 className="font-semibold">{data.title}</h3>
@@ -66,8 +61,7 @@ const Male = () => {
               </div>
             ))}
           </div>
-          {/* Buttons section */}
-          <div data-aos="fade-up" className="flex justify-center mt-5 ">
+          <div data-aos="fade-up" className="flex justify-center mt-5">
             {visibleProducts < ProductsData.length ? (
               <button
                 onClick={handleViewMore}
@@ -90,7 +84,7 @@ const Male = () => {
   );
 };
 
-export default Male;
+export default Female;
 
 const ProductsData = [
   {
