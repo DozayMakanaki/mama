@@ -117,7 +117,7 @@ const Navbar = ({ handleOrderPopup }) => {
               className="text-2xl sm:text-3xl flex gap-1 hover:scale-110"
             >
               <img src={Logo} alt="Logo" className="w-10 p-0 h-2/4" />
-              Sommy <span className=" text-orange-600">store</span>
+              Sommy <span className=" text-orange-400">store</span>
             </a>
           </div>
           <div className="flex justify-between items-center gap-4">
