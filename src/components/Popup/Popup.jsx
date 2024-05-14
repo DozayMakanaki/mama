@@ -5,11 +5,11 @@ const Popup = ({ orderPopup, setOrderPopup }) => {
   const handleOrderNow = () => {
     // Extract order details from the form
     const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const address = document.getElementById("address").value;
+    const email = document.getElementById("location").value;
+    const address = document.getElementById("product").value;
 
     // Construct the message with order details
-    const message = `New order received:\nName: ${name}\nEmail: ${email}\nAddress: ${address}`;
+    const message = `New order received:\nName: ${name}\nLocation: ${location}\nProduct: ${product}`;
 
     // Redirect to WhatsApp with the constructed message
     window.open(
@@ -45,15 +45,15 @@ const Popup = ({ orderPopup, setOrderPopup }) => {
                   className="w-full rounded-full border border-gray-300 dark:border-gray-500 dark:bg-gray-800 px-2 py-1 mb-4"
                 />
                 <input
-                  type="email"
-                  id="email"
-                  placeholder="Email"
+                  type="text"
+                  id="location"
+                  placeholder="Location"
                   className="w-full rounded-full border border-gray-300 dark:border-gray-500 dark:bg-gray-800 px-2 py-1 mb-4"
                 />
                 <input
                   type="text"
-                  id="address"
-                  placeholder="Address"
+                  id="product"
+                  placeholder="Product"
                   className="w-full rounded-full border border-gray-300 dark:border-gray-500 dark:bg-gray-800 px-2 py-1 mb-4"
                 />
                 <div className="flex justify-center">
