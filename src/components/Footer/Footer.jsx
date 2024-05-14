@@ -2,12 +2,13 @@ import React from "react";
 import footerLogo from "../../assets/logo.png";
 import Banner from "../../assets/website/footer-pattern.jpg";
 import {
-  FaFacebook,
+  FaWhatsapp,
   FaInstagram,
-  FaLinkedin,
+  FaTiktok,
   FaLocationArrow,
   FaMobileAlt,
 } from "react-icons/fa";
+
 
 const BannerImg = {
   backgroundImage: `url(${Banner})`,
@@ -99,10 +100,10 @@ const Footer = () => {
                   <FaInstagram className="text-3xl" />
                 </a>
                 <a href="#">
-                  <FaFacebook className="text-3xl" />
+                  <FaWhatsapp className="text-3xl" />
                 </a>
                 <a href="#">
-                  <FaLinkedin className="text-3xl" />
+                  <FaTiktok className="text-3xl" />
                 </a>
               </div>
               <div className="mt-6">
