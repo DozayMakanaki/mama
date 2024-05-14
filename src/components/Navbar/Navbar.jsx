@@ -121,45 +121,36 @@ const Navbar = ({ handleOrderPopup }) => {
             </a>
           </div>
           <div className="flex justify-between items-center gap-4">
-            <div className="relative group  sm:block">
+            <div className="relative">
               <input
                 type="text"
                 placeholder="Search"
                 value={searchInput}
                 onChange={handleSearchInputChange}
                 onKeyPress={handleKeyPress}
-                className="w-[200px]  group-hover:w-[300px] transition-all duration-300 rounded-full border border-gray-300 px-2 py-1 focus:outline-none focus:border-1 focus:border-primary dark:border-gray-500 dark:bg-gray-800  "
+                className="w-[200px] sm:w-[200px] transition-all duration-300 rounded-full border border-gray-300 px-2 py-1 focus:outline-none focus:border-1 focus:border-primary dark:border-gray-500 dark:bg-gray-800"
               />
               <button onClick={handleSearchSubmit}>
-                <IoMdSearch className="text-gray-500 group-hover:text-primary absolute top-1/2 -translate-y-1/2 right-3" />
+                <IoMdSearch className="text-gray-500 hover:text-primary absolute top-1/2 -translate-y-1/2 right-3" />
               </button>
+              {searchActive && (
+                <ul className="absolute left-0 right-0 mt-2 w-[200px] rounded-md bg-white p-2 text-black shadow-md">
+                  {searchSuggestions.map((suggestion) => (
+                    <li
+                      key={suggestion.id}
+                      className="cursor-pointer hover:bg-primary/20 p-1 rounded"
+                      onClick={() => handleSuggestionClick(suggestion)}
+                    >
+                      {suggestion.title}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-            {/* <button
-              onClick={() => handleOrderPopup()}
-              className="bg-gradient-to-r from-primary to-secondary transition-all duration-200 text-white  py-1 px-4 rounded-full flex items-center gap-3 group"
-            >
-              <span className="group-hover:block hidden transition-all duration-200">
-                Order
-              </span>
-              <FaCartShopping className="text-xl text-gray-600 drop-shadow-sm cursor-pointer hover:text-orange-600 hover:scale-110" />
-            </button> */}
             <div>
               <DarkMode />
             </div>
           </div>
-          {searchActive && (
-            <ul className="absolute z-[9999] mt-2 w-[200px] rounded-md bg-white p-2 text-black shadow-md">
-              {searchSuggestions.map((suggestion) => (
-                <li
-                  key={suggestion.id}
-                  className="cursor-pointer hover:bg-primary/20 p-1 rounded"
-                  onClick={() => handleSuggestionClick(suggestion)}
-                >
-                  {suggestion.title}
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
       </div>
       <div data-aos="zoom-in" className="flex justify-center">
