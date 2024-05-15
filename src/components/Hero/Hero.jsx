@@ -10,9 +10,9 @@ const ImageList = [
   {
     id: 1,
     img: Image1,
-    title: "Upto 30% off on all Premium product",
+    title: "Luxury and  Affordable Jewelries",
     description:
-      "lorem His Life will forever be Changed dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Indulge in elegance with our Luxury Jewelry, ",
   },
   {
     id: 2,
