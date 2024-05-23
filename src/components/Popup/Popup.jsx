@@ -13,7 +13,7 @@ const Popup = ({ orderPopup, setOrderPopup }) => {
 
     // Redirect to WhatsApp with the constructed message
     window.open(
-      `https://wa.me/08030752598/?text=${encodeURIComponent(message)}`,
+      `https://wa.me/+2348030752598/?text=${encodeURIComponent(message)}`,
       "_blank"
     );
   };
