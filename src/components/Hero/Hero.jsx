@@ -12,26 +12,26 @@ const ImageList = [
     img: Image1,
     title: "Luxury and  Affordable Jewelries",
     description:
-      "Indulge in elegance with our Luxury Jewelry, ",
+      "sleek elegance without hefty pricetag ",
   },
   {
     id: 2,
     img: Image2,
-    title: "30% off on all Women's Wear",
+    title: "Quality Male Watches",
     description:
       "Who's there lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     id: 3,
     img: Image3,
-    title: "70% off on all Products Sale",
+    title: "Fashionable Female Watches",
     description:
       "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     id: 4,
     img: Image4,
-    title: "Exclusive sale ",
+    title: "Autehentic Diamond and Moissanite Jewelries",
     description:
       "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
