@@ -5,8 +5,8 @@ const Popup = ({ orderPopup, setOrderPopup }) => {
   const handleOrderNow = () => {
     // Extract order details from the form
     const name = document.getElementById("name").value;
-    const email = document.getElementById("location").value;
-    const address = document.getElementById("product").value;
+    const location = document.getElementById("location").value;
+    const product = document.getElementById("product").value;
 
     // Construct the message with order details
     const message = `New order received:\nName: ${name}\nLocation: ${location}\nProduct: ${product}`;
