@@ -121,18 +121,18 @@ const Navbar = ({ handleOrderPopup }) => {
             </a>
           </div>
           <div className="flex justify-between items-center gap-4">
-            <div className="relative">
+            <div className="relative flex items-center">
               <input
                 type="text"
                 placeholder="Search"
                 value={searchInput}
                 onChange={handleSearchInputChange}
                 onKeyPress={handleKeyPress}
-                className="w-[200px] sm:w-[200px] transition-all duration-300 rounded-full border border-gray-300 px-2 py-1 focus:outline-none focus:border-1 focus:border-primary dark:border-gray-500 dark:bg-gray-800"
+                className="w-[150px] sm:w-[200px] transition-all duration-300 rounded-full border border-gray-300 px-2 py-1 pl-8 focus:outline-none focus:border-1 focus:border-primary dark:border-gray-500 dark:bg-gray-800"
               />
-              <button onClick={handleSearchSubmit}>
-                <IoMdSearch className="text-gray-500 hover:text-primary absolute top-1/2 -translate-y-1/2 right-3" />
-              </button>
+              {!searchInput && (
+                <IoMdSearch className="absolute left-3 text-gray-500 text-xl" />
+              )}
               {searchActive && (
                 <ul className="absolute left-0 right-0 mt-2 w-[200px] rounded-md bg-white p-2 text-black shadow-md">
                   {searchSuggestions.map((suggestion) => (

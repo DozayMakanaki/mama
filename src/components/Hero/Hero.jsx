@@ -19,21 +19,21 @@ const ImageList = [
     img: Image2,
     title: "Quality Male Watches",
     description:
-      "Who's there lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Explore Our Collecton of Premium Men's Watches - A Blend of style and Quality. Elevate your wrist game! ",
   },
   {
     id: 3,
     img: Image3,
     title: "Fashionable Female Watches",
     description:
-      "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Go for a Timeless look with our simple and classy Female watches. Effortlessly Elegant, Always in style",
   },
   {
     id: 4,
     img: Image4,
     title: "Autehentic Diamond and Moissanite Jewelries",
     description:
-      "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Sparkel and Shine in Moissanite magic, The Ultimate Unisex Jewelry Sensation",
   },
   {
     id: 5,
