@@ -22,11 +22,11 @@ const Female = () => {
   };
 
   return (
-    <div className="mt-14 mb-12" id="female">
+    <div className="mt-14 mb-12" id="male">
       <div className="container">
         <div className="text-center mb-10 max-w-[600px] mx-auto">
           <p data-aos="fade-up" className="text-sm text-primary">
-            Top Selling Products for Women
+            Top Selling Products for Men
           </p>
           <h1 data-aos="fade-up" className="text-3xl font-bold">
             Women Watches
